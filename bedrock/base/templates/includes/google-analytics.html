@@ -10,6 +10,16 @@ _gaq.push(['_trackPageview']);
 {% if settings.GA_ACCOUNT_CODE %}
 {% set GA_FILE = 'u/ga_debug.js' if settings.TEMPLATE_DEBUG else 'ga.js' %}
 (function() {
+	// respect do not track
+	function doNotTrack() {
+		var dnt = navigator.doNotTrack || navigator.msDoNotTrack;
+		if (dnt === 'yes' || dnt === '1') {
+			return true;
+		}
+		return false;
+	}
+	if (doNotTrack()) { return; }
+
     var ga = document.createElement('script');
     ga.type = 'text/javascript';
     ga.async = true;
