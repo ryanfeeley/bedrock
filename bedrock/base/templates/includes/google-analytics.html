@@ -17,8 +17,14 @@ _gaq.push(['_trackPageview']);
 			return true;
 		}
 		return false;
+	};
+
+	if (doNotTrack() && navigator.userAgent.indexOf("MSIE 10") === -1) { 
+		alert('do not track!'); 
+		return; 
+	} else {
+		alert('tracking!');
 	}
-	if (doNotTrack()) { return; }
 
     var ga = document.createElement('script');
     ga.type = 'text/javascript';
