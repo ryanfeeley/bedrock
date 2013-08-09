@@ -19,11 +19,8 @@ _gaq.push(['_trackPageview']);
 		return false;
 	};
 
-	if (doNotTrack() && navigator.userAgent.indexOf("MSIE 10") === -1) { 
-		alert('do not track!'); 
+	if (doNotTrack() && navigator.userAgent.indexOf("Trident/6.0") === -1) { 
 		return; 
-	} else {
-		alert('tracking!');
 	}
 
     var ga = document.createElement('script');
